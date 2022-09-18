@@ -3,6 +3,7 @@ package reservation.app.database;
 import reservation.app.entity.Booking;
 import reservation.app.entity.Flight;
 import reservation.app.entity.User;
+import reservation.app.utility.RandomFlightGenerator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -48,12 +49,14 @@ public class Database {
     }
 
     public void startUp() throws FileNotFoundException {
+        RandomFlightGenerator randomFlightGenerator = new RandomFlightGenerator();
         if (fileB.exists()) load(fileB, bookings);
         if (fileU.exists()) load(fileU, users);
         if (fileF.exists()) {
             load(fileF, flights);
         } else {
-
+            flights.addAll(randomFlightGenerator.generateRandomFlights(30));
+            save(fileF, flights);
         }
     }
 

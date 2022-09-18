@@ -1,9 +1,12 @@
 package reservation.app.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Flight {
+public class Flight implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private Airlines airline;
     private Cities location;
@@ -80,12 +83,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "id=" + id +
-                ", airline=" + airline +
-                ", location=" + location +
-                ", destination=" + destination +
-                ", flightTime=" + flightTime +
-                '}';
+        return String.format("\n\nFlight{id=%d, \nairline=%s, \nlocation=%s, \ndestination=%s, \nflightTime=%s}", id, airline, location, destination, flightTime);
     }
 }
