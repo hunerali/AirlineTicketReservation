@@ -7,10 +7,10 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-//        RandomFlightGenerator rg = new RandomFlightGenerator();
-//        System.out.println(rg.generateRandomFlights(3));
-        Database db =new Database();
-        db.startUp();
+        Application app = new Application();
+        while (app.run()) {
+            if (!app.run()) break;
+        }
 
     }
 }

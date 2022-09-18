@@ -37,32 +37,32 @@ public class Application {
         System.out.println("Enter command: ");
         String command = sc.nextLine();
         switch (command) {
-            case "1": {
+            case "1":
                 register();
                 break;
-            }
-            case "2": {
+
+            case "2":
                 User u = login();
                 userRun(u);
                 break;
-            }
-            case "3": {
+
+            case "3":
                 flightController.getAllFlights().forEach(System.out::println);
                 break;
-            }
-            case "4": {
+
+            case "4":
                 System.out.println("Application shutted down");
                 return false;
-            }
+
             default:
                 System.out.println("No such command");
 
         }
-        return false;
+        return true;
     }
 
     private void guestMenu() {
-        System.out.println("1.Registration\n" +
+        System.out.println("\n1.Registration\n" +
                 "2.Login\n" +
                 "3.View TimeTable\n" +
                 "4.Exit");
