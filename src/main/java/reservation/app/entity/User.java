@@ -1,6 +1,7 @@
 package reservation.app.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,6 +19,7 @@ public class User implements Serializable {
         this.id = id;
         this.username = username;
         this.password = password;
+        bookings = new ArrayList<>();
     }
 
     public int getId() {
