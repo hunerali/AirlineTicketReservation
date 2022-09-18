@@ -14,7 +14,6 @@ import reservation.app.service.UserService;
 
 import java.io.FileNotFoundException;
 import java.util.Iterator;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Application {
@@ -44,7 +43,20 @@ public class Application {
             }
             case "2": {
                 User u = login();
+                userRun(u);
+                break;
             }
+            case "3": {
+                flightController.getAllFlights().forEach(System.out::println);
+                break;
+            }
+            case "4": {
+                System.out.println("Application shutted down");
+                return false;
+            }
+            default:
+                System.out.println("No such command");
+
         }
         return false;
     }
@@ -93,8 +105,39 @@ public class Application {
             }
         }
         return u;
+    }
 
+    public boolean userMenuCase(User user) {
+        userMenu();
+        System.out.println("Enter command: ");
+        Scanner sc = new Scanner(System.in);
+        String command = sc.nextLine();
+        switch (command) {
+            case "1": {
+                flightController.getAllFlights().forEach(System.out::println);
+                break;
+            }
+            case "2": {
 
+            }
+            case "3": {
+
+            }
+            case "4": {
+                System.out.println("Logged out");
+                return false;
+            }
+            default:
+                System.out.println("No such command!");
+        }
+        return true;
+    }
+
+    private void userRun(User user) {
+        while (userMenuCase(user))
+            if (!userMenuCase(user)) {
+                break;
+            }
     }
 
 
