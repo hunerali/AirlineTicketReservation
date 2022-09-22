@@ -5,7 +5,6 @@ import reservation.app.entity.User;
 import reservation.app.service.BookingService;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BookingController {
     private final BookingService bookingService;
@@ -27,11 +26,11 @@ public class BookingController {
     }
 
     public boolean deleteBooking(int id) {
-        return deleteBooking(id);
+        return bookingService.deleteBooking(id);
     }
 
     public boolean deleteBooking(Booking booking) {
-        return deleteBooking(booking);
+        return bookingService.deleteBooking(booking);
 
     }
 }
